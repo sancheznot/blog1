@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ <%- include ('layouts/header'); -%>
+<body>
+        <%- include ('layouts/navbar'); -%>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('../assets/img/contact-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>Create a New Post</h1>
+                            <span class="subheading">Escribe lo mas inspirador que venga a tu mente</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="my-5">
+                            <form action="/posts/store" method="POST" enctype="multipart/form-data">
+                                <div class="form-floating">
+                                    
+                                    <input class="form-control" id="title" name="title" type="text" placeholder="Enter your title" data-sb-validations="required" />
+                                    <label for="title">Title</label>
+                                    
+                                </div>
+                                <div class="form-floating">
+                                    
+                                    <input class="form-control" id="subT" name="subT" type="text" placeholder="Enter your Subtitle" data-sb-validations="required" />
+                                    <label for="subT">Sub-Title white a little description</label>
+                                    
+                                </div>
+
+                                <div class="form-floating">
+                                  <div class="form-group floating-label-form-group controls">
+                                    <!-- <label>Description</label> -->
+                                    <div class="my-5"></div>
+                                    <textarea class="form-control" id="body" name="body" placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required"></textarea>
+                                    <script>
+                                     $('#body').summernote({
+                                         placeholder: 'White your post here',
+                                         tabsize: '2',
+                                         height: '200'
+
+                                     });
+                                    </script>
+                                </div>   
+                                </div>
+                                <br/>
+                                <span>Image required for post header</span>
+                                <div class="form-floating">
+                                    
+                                    <div class="my-2"></div>
+                                   
+                                    <input class="form-control" id="image" name="image" type="file" placeholder="coloca una imagen" data-sb-validations="required" />
+                                    <label for="image">Image</label>
+                                    
+                                </div>
+                                <br />
+                                
+                                <!-- This is what your users will see when there is-->
+                                <!-- an error submitting the form-->
+                                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                                <!-- Submit Button-->
+                                <button id="sendMessageButton" type="submit">Send</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+       
+        <%- include ('layouts/footer'); -%>
+        <%- include ('layouts/scripts'); -%>
+    </body>
+</html>
